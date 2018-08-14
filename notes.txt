@@ -1,0 +1,20 @@
+| Random notes |
+
+    baseFreq = 110.0 // A2
+    12RootOf2 = pow(2.0, 1.0 / 12.0)
+
+
+| Digital wave types |
+    Sine wave
+        sin(Hz * Time)
+    Square wave
+        sin(Hz * Time) > 0.0 ? 1.0 : -1.0
+    Triangle wave
+        asin(sin(Hz) * Time) * 2.0 / PI
+
+| Filter design |
+
+    With FIR filters, the phase is linear but the
+    latency is maximum. With IIR filtering, the phase is compromised around the
+    Nyquist frequency but the latency is minimum.
+
