@@ -3,6 +3,17 @@
     baseFreq = 110.0 // A2
     12RootOf2 = pow(2.0, 1.0 / 12.0)
 
+    size_t. 
+    Alias of one of the fundamental unsigned integer types. 
+    It is a type able to represent the size of any object in bytes: 
+    size_t is the type returned by the sizeof operator and is widely used in the standard library to represent sizes and counts.
+
+    Useful hash defines :
+
+    #define _USE_MATH_DEFINES // For PI
+    #include <math.h> // or
+    #include <cmath>
+
 
 | Digital wave types |
     Sine wave
@@ -12,9 +23,23 @@
     Triangle wave
         asin(sin(Hz) * Time) * 2.0 / PI
 
+    Formula to make an interger odd:
+    (2k - 1)
+        From :
+            2pi(2k - 1)f, where f = frequency
+
 | Filter design |
 
     With FIR filters, the phase is linear but the
     latency is maximum. With IIR filtering, the phase is compromised around the
     Nyquist frequency but the latency is minimum.
 
+
+| Will Pirkle |
+
+    Synth stuff
+
+    Chapter 4
+        The transfer function of an algorithm is its output divided by its input denoted as H. (p.157 $4.2)
+
+    DSP stuff
