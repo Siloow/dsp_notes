@@ -34,6 +34,12 @@
     latency is maximum. With IIR filtering, the phase is compromised around the
     Nyquist frequency but the latency is minimum.
 
+    In the jargon of signal processing, the input and output signals are viewed as a superposition (sum) of simpler waveforms. This is the basis of nearly all signal processing techniques.
+
+    The general shape of low-pass and high-pass filter kernels (another name for a filter's impulse response)
+
+    The frequency spectrum of any signal is composed of two parts, the magnitude and the phase.
+
 
 | Will Pirkle |
 
@@ -42,4 +48,74 @@
     Chapter 4
         The transfer function of an algorithm is its output divided by its input denoted as H. (p.157 $4.2)
 
+        
+
     DSP stuff
+
+| Scientist guide pdf |
+    Linear systems : http://www.dspguide.com/ch5/7.htm {
+
+        The input signal to a discrete system is usually called: x[n], and the output signal: y[n]. For continuous systems, the signals: x(t) and y(t) are used
+
+        A system is called linear if it has two mathematical properties: homogeneity (hōma-gen-ā-ity) and additivity.
+        Homogeneity means that a change in the input signal's amplitude results in a corresponding change in the output signal's amplitude. In mathematical terms, if an input signal of x[n] results in an output signal of y[n], an input of kx[n] results in an output of ky[n], for any input signal and constant, k.
+        The system is said to be additive, if an input of x1[n] + x2[n] results in an output of y1[n] + y2[n], for all possible input signals. In words, signals added at the input produce signals that are added at the output.
+        Shift invariance means that a shift in the input signal will result in nothing more than an identical shift in the output signal. In more formal terms, if an input signal of x[n] results in an output of y[n], an input signal of x[n + s] results in an output of y[n + s], for any input signal and any constant, s.
+
+        Static linearity defines how a linear system reacts when the signals aren't changing, i.e., when they are DC or static.
+        An important characteristic of linear systems is how they behave with sinusoids, a property we will call sinusoidal fidelity: If the input to a linear system is a sinusoidal wave, the output will also be a sinusoidal wave, and at exactly the same frequency as the input.
+        
+        Linearity is commutative.
+        The commutative property states that the order of the systems in the cascade can be rearranged without affecting the characteristics of the overall combination.
+
+        When we are dealing with linear systems, the only way signals can be combined is by scaling (multiplication of the signals by constants) followed by addition.
+        The process of combining signals through scaling and addition is called synthesis.
+        Decomposition is the inverse operation of synthesis, where a single signal is broken into two or more additive components
+
+        In the jargon of signal processing, the input and output signals are viewed as a superposition (sum) of simpler waveforms.
+
+        Reread and summarize : http://www.dspguide.com/ch5/7.htm
+    }
+    
+    Convolution : http://www.dspguide.com/ch5/7.htm {
+        Convolution is a mathematical way of combining two signals to form a third signal. It is the single most important technique in Digital Signal Processing. 
+        Using the strategy of impulse decomposition, systems are described by a signal called the impulse response. 
+        Convolution is important because it relates the three signals of interest: the input signal, the output signal, and the impulse response. 
+
+        The delta function is a normalized impulse, that is, sample number zero has a value of one, while all other samples have a value of zero. For this reason, the delta function is frequently called the unit impulse.
+        The impulse response is the signal that exits a system when a delta function (unit impulse) is the input.
+
+        The impulse response goes by a different name in some applications. If the system being considered is a filter, the impulse response is called the filter kernel, the convolution kernel, or simply, the kernel.
+
+        Convolution is a formal mathematical operation, just as multiplication, addition, and integration.  
+        In linear systems, convolution is used to describe the relationship between three signals of interest: the input signal, the impulse response, and the output signal.
+    }
+
+
+| Reverb stuff |
+
+    http://arqen.com/wp-content/docs/Hybrid-Convolution-Algorithmic-Reverb.pdf {
+    Early Reflections:  the first reflections that we hear within about 100ms of hearing the direct sound of the source. 
+    Late Reverberation: the reverberant sound field after about 100ms, until it fully decays.
+        Late reverb is characterized by a dense texture of diffused reflections that reach our ears from
+        many different paths. These diffused reflections are out of phase with one another, causing us
+        to hear the comb filtering effect. We perceive this as ambience.
+    
+    RT60 - the reverberation time, RT60, is the time it takes for the acoustic signal to decay by
+        60dB. The reverb time varies throughout the spectrum, and can be measured at discrete
+        frequency values. For practical applications, averaging schemes are used to define the reverb
+        time in the portion of the spectrum where human hearing is most sensitive (between about
+        125 Hz and 4000 Hz is where we perceive the most significant sound colouration by reverb).
+        RT60 is defined according to the Sabine and Eyring equations [1] as a function the volume of
+        a room and the absorption of sound energy inside that room. 
+    }
+
+
+| C++ stuff |
+
+    https://www.tutorialspoint.com/cplusplus/cpp_class_access_modifiers.htm {
+    Class Acces Modifiers
+        A public member is accessible from anywhere outside the class but within a program
+        A private member variable or function cannot be accessed, or even viewed from outside the class. Only the class and friend functions can access private members.
+        A protected member variable or function is very similar to a private member but it provided one additional benefit that they can be accessed in child classes which are called derived classes.
+    }
